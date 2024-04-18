@@ -1,66 +1,30 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# API EVENTOS
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Gracias por revisar mi proyecto desarrollado en Laravel. A continuación, encontrarás las instrucciones para ejecutar la solución y las evidencias que demuestran su funcionamiento. 
+  
+Este proyecto consiste en el desarrollo de un servicio que simula la gestión de tickets para eventos artísticos, exponiendo una API REST a través de HTTP para el registro/asignación de turnos.
 
-## About Laravel
+## Instalacion
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Clona este repositorio en tu máquina local.
+- Ejecuta composer install para instalar las dependencias de Laravel.
+- Ejecuta ***php artisan migrate*** para ejecutar las migraciones y crear las tablas en la base de datos.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+  
+## Uso 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Inicia el servidor ejecutando ***php artisan serve***.
+- Descarga la colección de Postman.
+- Importa la colección en Postman para interactuar con la API.
 
-## Learning Laravel
+## Colección POSTMAN
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **https://github.com/Frrancoglez/colecci-n-POSTMAN**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Imagenes y Funcionamiento
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Con el metodo **GET** y el endpoint **/empleados** la API devuelve un listado de empleados registrados en la base de datos: [Imagen Empleados](https://github.com/Frrancoglez/im-genes/blob/main/empleados.png)    
+- Con el Metodo **GET** el endpoint **/turnos** la API devuelve un listado de turnos registrados en la base de datos: [Imagen Turnos](https://github.com/Frrancoglez/im-genes/blob/main/turnos.png)  
+- Con el metodo **GET** y el endpoint **/oncall** la API compara el ID de los empleados y con el ID de los empleados que estan en turno para devolver un listado de empleados que no se encuentran en turno para ser llamados: [Imagen onCall](https://github.com/Frrancoglez/im-genes/blob/main/onCall.png)  
+- Con el metodo **POST** y el endpoint **/assign** la API valida la fecha y el ID del empleado para crear el nuevo turno. Si se proporciona un ID no valida la API devolvera un error **400**. Si el empleado existe en la base de datos, la API recupera los datos del empleado correspondiente al ID proporcionado y registra el nuevo turno en la base de datos: [Imagen Assign](https://github.com/Frrancoglez/im-genes/blob/main/assign.png) - [Imagen Assign Error](https://github.com/Frrancoglez/im-genes/blob/main/assignError.png)  
+- Con el metodo **GET** y el endpoint **/all** la API compara la columna fecha de los registros de turnos con el mes de la fecha actual. Filtra los turnos que coinciden con el mes actual y recupera el ID de los empleados asignados a dichos turnos: [Imagen All](https://github.com/Frrancoglez/im-genes/blob/main/all.png)
